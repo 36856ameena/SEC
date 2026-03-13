@@ -14,6 +14,7 @@ font-family:Segoe UI, sans-serif;
 background:linear-gradient(180deg,#050814,#0b1330);
 color:white;
 text-align:center;
+scroll-behavior:smooth;
 }
 
 header{
@@ -22,12 +23,12 @@ padding:80px 20px;
 
 header h1{
 font-size:52px;
-color:#c7d2fe;
+color:#ffffff;
 letter-spacing:2px;
 }
 
 header p{
-color:#a0b4ff;
+color:#cfd7ff;
 font-size:18px;
 max-width:600px;
 margin:auto;
@@ -38,8 +39,8 @@ margin-top:20px;
 padding:12px 30px;
 border:none;
 border-radius:25px;
-background:#7aa6ff;
-color:black;
+background:#ffffff;
+color:#0b1330;
 font-weight:bold;
 cursor:pointer;
 transition:0.3s;
@@ -55,7 +56,7 @@ padding:70px 20px;
 }
 
 h2{
-color:#7aa6ff;
+color:#ffffff;
 margin-bottom:40px;
 }
 
@@ -77,8 +78,8 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 }
 
 .card:hover{
-transform:translateY(-10px) scale(1.03);
-box-shadow:0 0 40px rgba(122,166,255,0.8);
+transform:translateY(-8px);
+box-shadow:0 0 30px rgba(122,166,255,0.6);
 }
 
 .card img{
@@ -87,7 +88,7 @@ border-radius:12px;
 }
 
 .card h3{
-color:#9dbaff;
+color:#d6deff;
 margin-top:15px;
 }
 
@@ -117,7 +118,7 @@ transform:scale(1.05);
 }
 
 .price-card h3{
-color:#9dbaff;
+color:#d6deff;
 }
 
 footer{
@@ -125,6 +126,17 @@ margin-top:60px;
 padding:20px;
 font-size:14px;
 color:#8899cc;
+}
+
+.reveal{
+opacity:0;
+transform:translateY(40px);
+transition:all 0.8s ease;
+}
+
+.reveal.active{
+opacity:1;
+transform:translateY(0);
 }
 
 </style>
@@ -137,44 +149,45 @@ color:#8899cc;
 <h1>SnoozeCruise</h1>
 
 <p>
-SnoozeCruise is a luxury autonomous ride-sharing service designed for digital wellness. 
-Instead of sitting in traffic, passengers can relax inside quiet, soundproof nap pods 
+SnoozeCruise is a luxury autonomous ride-sharing service designed for digital wellness.
+Instead of sitting in traffic, passengers can relax inside quiet, soundproof nap pods
 and recharge during their commute.
 </p>
 
-<button>Book Your Pod</button>
+<button onclick="goPricing()">Book Your Pod</button>
+<button onclick="goSteps()" style="margin-left:10px;">Learn More</button>
 
 </header>
 
-<section class="section">
+<section class="section" id="steps">
 
 <h2>How It Works</h2>
 
 <div class="steps">
 
-<div class="card">
+<div class="card reveal">
 <img src="summon.jpg">
 <h3>1. Summon</h3>
 <p>
-Open the SnoozeCruise app and request a pod instantly. 
+Open the SnoozeCruise app and request a pod instantly.
 The autonomous vehicle arrives at your location within minutes.
 </p>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="sleep.jpg">
 <h3>2. Sleep</h3>
 <p>
-Step into a comfortable soundproof pod with soft ambient lighting 
+Step into a comfortable soundproof pod with soft ambient lighting
 and a cozy bed designed for quick rest or relaxation.
 </p>
 </div>
 
-<div class="card">
+<div class="card reveal">
 <img src="arrive.jpg">
 <h3>3. Arrive</h3>
 <p>
-Wake up refreshed as the pod reaches your destination safely, 
+Wake up refreshed as the pod reaches your destination safely,
 turning your commute into a moment of rest.
 </p>
 </div>
@@ -183,44 +196,19 @@ turning your commute into a moment of rest.
 
 </section>
 
-<section class="section">
-
-<h2>Why SnoozeCruise?</h2>
-
-<div class="steps">
-
-<div class="card">
-<h3>Soundproof Pods</h3>
-<p>Advanced soundproof technology ensures peaceful rest during your commute.</p>
-</div>
-
-<div class="card">
-<h3>AI Navigation</h3>
-<p>Autonomous driving powered by intelligent navigation systems ensures safe travel.</p>
-</div>
-
-<div class="card">
-<h3>Stress-Free Commute</h3>
-<p>Turn wasted travel time into productive rest and arrive refreshed.</p>
-</div>
-
-</div>
-
-</section>
-
-<section class="section">
+<section class="section" id="pricing">
 
 <h2>Pricing</h2>
 
 <div class="pricing">
 
-<div class="price-card">
+<div class="price-card reveal">
 <h3>Power Nap</h3>
 <p>Perfect for short city rides and quick energy boosts.</p>
 <h2>$5</h2>
 </div>
 
-<div class="price-card">
+<div class="price-card reveal">
 <h3>Deep Sleep</h3>
 <p>Longer peaceful rides for uninterrupted relaxation.</p>
 <h2>$12</h2>
@@ -234,5 +222,39 @@ turning your commute into a moment of rest.
 © 2026 SnoozeCruise — Digital Wellness Mobility
 </footer>
 
+<script>
+
+function goPricing(){
+document.getElementById("pricing").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+function goSteps(){
+document.getElementById("steps").scrollIntoView({
+behavior:"smooth"
+});
+}
+
+window.addEventListener("scroll", reveal);
+
+function reveal(){
+let reveals=document.querySelectorAll(".reveal");
+
+for(let i=0;i<reveals.length;i++){
+
+let windowHeight=window.innerHeight;
+let elementTop=reveals[i].getBoundingClientRect().top;
+let elementVisible=120;
+
+if(elementTop < windowHeight - elementVisible){
+reveals[i].classList.add("active");
+}
+
+}
+}
+
+</script>
+
 </body>
-  </html>
+</html>
