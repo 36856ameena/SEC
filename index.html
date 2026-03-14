@@ -17,6 +17,28 @@ text-align:center;
 scroll-behavior:smooth;
 }
 
+/* NAVBAR */
+
+nav{
+background:#040818;
+padding:15px;
+position:sticky;
+top:0;
+}
+
+nav a{
+color:white;
+margin:20px;
+text-decoration:none;
+font-weight:500;
+}
+
+nav a:hover{
+color:#7aa6ff;
+}
+
+/* HEADER */
+
 header{
 padding:80px 20px;
 }
@@ -33,6 +55,8 @@ font-size:18px;
 max-width:600px;
 margin:auto;
 }
+
+/* BUTTON */
 
 button{
 margin-top:20px;
@@ -51,6 +75,8 @@ box-shadow:0 0 20px #7aa6ff;
 transform:scale(1.05);
 }
 
+/* SECTIONS */
+
 .section{
 padding:70px 20px;
 }
@@ -66,6 +92,8 @@ justify-content:center;
 gap:40px;
 flex-wrap:wrap;
 }
+
+/* CARDS */
 
 .card{
 background:rgba(20,30,70,0.6);
@@ -97,6 +125,8 @@ font-size:14px;
 color:#d0d8ff;
 }
 
+/* PRICING */
+
 .pricing{
 display:flex;
 justify-content:center;
@@ -121,12 +151,16 @@ transform:scale(1.05);
 color:#d6deff;
 }
 
+/* FOOTER */
+
 footer{
 margin-top:60px;
 padding:20px;
 font-size:14px;
 color:#8899cc;
 }
+
+/* ANIMATION */
 
 .reveal{
 opacity:0;
@@ -144,7 +178,17 @@ transform:translateY(0);
 
 <body>
 
-<header>
+<!-- NAVBAR -->
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#steps">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<header id="home">
 
 <h1>SnoozeCruise</h1>
 
@@ -158,6 +202,22 @@ and recharge during their commute.
 <button onclick="goSteps()" style="margin-left:10px;">Learn More</button>
 
 </header>
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+<h2>About SnoozeCruise</h2>
+
+<p style="max-width:700px;margin:auto;">
+SnoozeCruise is a futuristic transportation concept focused on digital wellness.
+The service provides autonomous ride-sharing pods designed for relaxation during travel.
+Passengers can enjoy a quiet environment, comfortable interiors, and a stress-free commute.
+</p>
+
+</section>
+
+<!-- HOW IT WORKS -->
 
 <section class="section" id="steps">
 
@@ -196,6 +256,8 @@ turning your commute into a moment of rest.
 
 </section>
 
+<!-- PRICING -->
+
 <section class="section" id="pricing">
 
 <h2>Pricing</h2>
@@ -215,6 +277,17 @@ turning your commute into a moment of rest.
 </div>
 
 </div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="section" id="contact">
+
+<h2>Contact</h2>
+
+<p>Email: support@snoozecruise.com</p>
+<p>Phone: +1 234 567 890</p>
 
 </section>
 
