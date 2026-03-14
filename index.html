@@ -11,15 +11,34 @@
 body{
 margin:0;
 font-family:Segoe UI, sans-serif;
-
-background:
-radial-gradient(circle at 20% 30%, #1a2a6c33 0%, transparent 40%),
-radial-gradient(circle at 80% 70%, #0f346033 0%, transparent 40%),
-linear-gradient(180deg,#02030a,#0a0f2b,#06081a);
-
+background:linear-gradient(180deg,#02030a,#0a0f2b,#06081a);
 color:white;
 text-align:center;
 scroll-behavior:smooth;
+}
+
+/* floating stars background */
+
+.stars{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background-image:
+radial-gradient(2px 2px at 20px 30px, white, transparent),
+radial-gradient(2px 2px at 200px 150px, white, transparent),
+radial-gradient(2px 2px at 400px 300px, white, transparent),
+radial-gradient(2px 2px at 600px 120px, white, transparent),
+radial-gradient(2px 2px at 800px 250px, white, transparent);
+animation:moveStars 60s linear infinite;
+z-index:-1;
+opacity:0.4;
+}
+
+@keyframes moveStars{
+from{transform:translateY(0);}
+to{transform:translateY(-1000px);}
 }
 
 /* NAVBAR */
@@ -183,7 +202,7 @@ transform:translateY(0);
 
 <body>
 
-<!-- NAVBAR -->
+<div class="stars"></div>
 
 <nav>
 <a href="#home">Home</a>
@@ -208,21 +227,16 @@ and recharge during their commute.
 
 </header>
 
-<!-- ABOUT -->
-
 <section class="section" id="about">
 
 <h2>About SnoozeCruise</h2>
 
 <p style="max-width:700px;margin:auto;">
 SnoozeCruise is a futuristic transportation concept focused on digital wellness.
-The service provides autonomous ride-sharing pods designed for relaxation during travel.
-Passengers can enjoy a quiet environment, comfortable interiors, and a stress-free commute.
+Passengers travel in autonomous pods designed for relaxation during daily commutes.
 </p>
 
 </section>
-
-<!-- HOW IT WORKS -->
 
 <section class="section" id="steps">
 
@@ -233,35 +247,24 @@ Passengers can enjoy a quiet environment, comfortable interiors, and a stress-fr
 <div class="card reveal">
 <img src="summon.jpg">
 <h3>1. Summon</h3>
-<p>
-Open the SnoozeCruise app and request a pod instantly.
-The autonomous vehicle arrives at your location within minutes.
-</p>
+<p>Request a pod through the app and it arrives at your location.</p>
 </div>
 
 <div class="card reveal">
 <img src="sleep.jpg">
 <h3>2. Sleep</h3>
-<p>
-Step into a comfortable soundproof pod with soft ambient lighting
-and a cozy bed designed for quick rest or relaxation.
-</p>
+<p>Relax in a quiet pod with soft lighting and comfortable interior.</p>
 </div>
 
 <div class="card reveal">
 <img src="arrive.jpg">
 <h3>3. Arrive</h3>
-<p>
-Wake up refreshed as the pod reaches your destination safely,
-turning your commute into a moment of rest.
-</p>
+<p>Wake up refreshed when the pod safely reaches your destination.</p>
 </div>
 
 </div>
 
 </section>
-
-<!-- PRICING -->
 
 <section class="section" id="pricing">
 
@@ -271,21 +274,19 @@ turning your commute into a moment of rest.
 
 <div class="price-card reveal">
 <h3>Power Nap</h3>
-<p>Perfect for short city rides and quick energy boosts.</p>
+<p>Perfect for short rides.</p>
 <h2>$5</h2>
 </div>
 
 <div class="price-card reveal">
 <h3>Deep Sleep</h3>
-<p>Longer peaceful rides for uninterrupted relaxation.</p>
+<p>Long peaceful commute.</p>
 <h2>$12</h2>
 </div>
 
 </div>
 
 </section>
-
-<!-- CONTACT -->
 
 <section class="section" id="contact">
 
@@ -303,15 +304,11 @@ turning your commute into a moment of rest.
 <script>
 
 function goPricing(){
-document.getElementById("pricing").scrollIntoView({
-behavior:"smooth"
-});
+document.getElementById("pricing").scrollIntoView({behavior:"smooth"});
 }
 
 function goSteps(){
-document.getElementById("steps").scrollIntoView({
-behavior:"smooth"
-});
+document.getElementById("steps").scrollIntoView({behavior:"smooth"});
 }
 
 window.addEventListener("scroll", reveal);
